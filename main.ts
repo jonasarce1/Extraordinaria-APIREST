@@ -26,8 +26,8 @@ app.post("/addEvent", addEvent);
 app.get("/events", getEvents);
 app.get("/event/:id", getEvent);
 
-app.delete("/event/:id", deleteEvent);
+app.delete("/deleteEvent/:id", deleteEvent);
 
-app.put("/event/:id", updateEvent);
+app.put("/updateEvent", updateEvent);
 
 app.listen(3000, () => { console.log("Funcionando en puerto 3000") });
