@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 
-import { holamundo } from "./resolvers/holamundo.ts";
+import { addEvent } from "./resolvers/addEvent.ts";
+import { getEvents } from "./resolvers/getEvents.ts";
 
 const MONGO_URL = Deno.env.get("MONGO_URL");
 
@@ -12,12 +13,13 @@ if (!MONGO_URL) {
 
 await mongoose.connect(MONGO_URL);
 
-//pruebas
-
 const app = express(); 
 app.use(express.json());
 
 //Endpoints
-app.get("/api", holamundo);
+
+app.post("/addEvent", addEvent);
+
+app.get("/events", getEvents);
 
 app.listen(3000, () => { console.log("Funcionando en puerto 3000") });
