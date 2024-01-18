@@ -10,7 +10,7 @@ const EventoSchema = new Schema({
     fin: {type: Number, required: true}, //Hora Fin
     invitados: [{ //Array de personas con nombre y apellido
         nombre: {type: String, required: true},
-        apellido: {type: String, required: true}
+        apellido: {type: String, required: true}, required: true
     }]
 })
 
