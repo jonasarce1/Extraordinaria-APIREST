@@ -2,7 +2,12 @@ import {Request, Response} from "express";
 import mongoose from "mongoose";
 import { EventoModelType, EventoModel } from "../db/EventoDB.ts";
 
-export const addEvent = async(req: Request<string, string | undefined, Date, number, number, Object[]>, res: Response<EventoModelType | null>) => {
+type Invitado = {
+    nombre: string;
+    apellido: string;
+};
+
+export const addEvent = async(req: Request<string, string | undefined, Date, number, number, Invitado[]>, res: Response<EventoModelType | null>) => {
     try{
         const {titulo, descripcion, fecha, inicio, fin, invitados} = req.body;
 
