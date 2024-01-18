@@ -8,8 +8,8 @@ const EventoSchema = new Schema({
     fecha: {type: Date, required: true},
     inicio: {type: Number, required: true}, //Hora Inicio
     fin: {type: Number, required: true}, //Hora Fin
-    personas: [{ //Array de personas con nombre y apellido
-        name: {type: String, required: true},
+    invitados: [{ //Array de personas con nombre y apellido
+        nombre: {type: String, required: true},
         apellido: {type: String, required: true}
     }]
 })
@@ -17,9 +17,6 @@ const EventoSchema = new Schema({
 EventoSchema.path("inicio").validate(function (inicio:number) {
     if(inicio > 24 || inicio < 1){
         throw new Error("La hora de inicio ha de estar comprendida entre 1 y 24");
-    }
-    if(inicio > this.fin){
-        throw new Error("La hora de inicio no puede ser mayor que la de fin")
     }
     return true;
 })
