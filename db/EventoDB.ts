@@ -11,7 +11,7 @@ const EventoSchema = new Schema({
     invitados: [{ //Array de personas con nombre y apellido
         nombre: {type: String, required: true},
         apellido: {type: String, required: true}
-    }, {required: true}]
+    }]
 })
 
 EventoSchema.path("inicio").validate(function (inicio:number) {
