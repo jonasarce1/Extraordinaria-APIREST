@@ -12,6 +12,8 @@ if (!MONGO_URL) {
 
 await mongoose.connect(MONGO_URL);
 
+//pruebas
+
 const app = express(); 
 app.use(express.json());
 
