@@ -2,16 +2,17 @@ import {Request, Response} from "express";
 import mongoose from "mongoose";
 import { EventoModelType, EventoModel } from "../db/EventoDB.ts";
 
-export const addEvent = async(req: Request<string, string | undefined, Date, number, number>, res: Response<EventoModelType | null>) => {
+export const addEvent = async(req: Request<string, string | undefined, Date, number, number, Object[]>, res: Response<EventoModelType | null>) => {
     try{
-        const {titulo, descripcion, fecha, inicio, fin} = req.body;
+        const {titulo, descripcion, fecha, inicio, fin, invitados} = req.body;
 
         const evento = new EventoModel({
             titulo,
             descripcion,
             fecha,
             inicio,
-            fin
+            fin,
+            invitados
         })
 
         await evento.save();
