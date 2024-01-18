@@ -6,7 +6,7 @@ export const getEvents = async(_req:Request, res:Response<EventoModelType[]>) =>
     try{
         const fechaActual = new Date(); //new Date devuelve la fecha actual en este formato: 2021-05-31T10:00:00.000Z
 
-        const eventos = await EventoModel.find({fecha: {$gt: fechaActual}}); //gt = greater than
+        const eventos = await EventoModel.find({fecha: {$gte: fechaActual}}); //gt = greater than
 
         res.status(200).send(eventos);
     }catch(error){
